@@ -59,8 +59,14 @@ the directories in the INCLUDE environment variable."
 (add-hook 'c++-mode-hook 'my:ac-c-header-init)
 (add-hook 'c-mode-hook 'my:ac-c-header-init)
 
-;;start ECB Code Browser with Emacs
-(require 'ecb)
+;;Helm mode                                                                                                                                                           
+(require 'helm-config)
+(helm-mode 1)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+
+
+
  
 ;;Lets give color theme a try WOO!
 (require 'color-theme)

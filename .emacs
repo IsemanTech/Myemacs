@@ -14,7 +14,7 @@
  '(ecb-options-version "2.40")
  '(package-selected-packages
    (quote
-    (bongo w3 volume nyan-mode pdf-tools exwm-x cl-generic exwm scad-preview scad-mode yasnippet lua-mode helm ggtags color-theme auto-complete-c-headers))))
+    (el-get bongo w3 volume nyan-mode pdf-tools exwm-x cl-generic exwm scad-preview scad-mode yasnippet lua-mode helm ggtags color-theme auto-complete-c-headers))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -128,7 +128,26 @@ the directories in the list. The directories must also exist."
 (nyan-start-animation)
 
 ;;bongo
-(bongo)
-(bongo-insert-directory "~/Music/Japanese")
-(split-window-below)
-(bongo-library)
+;;(bongo)
+;;(bongo-insert-directory "~/Music/Japanese")
+;;(split-window-below)
+;;(bongo-library)
+
+;;require erc
+(add-to-list 'load-path "~/elisp/erc")
+(require 'erc)
+
+;;adjust brightness
+;;(add-to-list 'load "~/emacs-tools/brightness.el")
+
+;;volume buttons
+(require 'volume)
+(global-set-key (kbd "<XF86AudioRaiseVolume>") 'volume-raise)
+(global-set-key (kbd "<XF86AudioLowerVolume>") 'volume-lower)
+(global-set-key (kbd "<XF86AudioMute>") 'volume-set-to-0%)
+
+;;Play Master of Orion II
+(defun play-master-of-orion ()
+  (interactive)
+  (shell-command-on-region (point-min) (point-max) "./'GOG Games'/'Master of Orion 2'/start.sh" t))
+
